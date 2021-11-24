@@ -1,14 +1,23 @@
 import State from './State.mjs';
 import BallSortPuzzleSolver from './BallSortPuzzleSolver.mjs';
 
-const pileCapacity = 5;
-const initialState = new State(pileCapacity, ['vobcc', 'avrsp', 'amblo', 'oorkd', 'aslkm', 'dpkbv', 'rkrac', 'bpaks', 'slldd', 'pbrmv', 'clmom', 'pdcvs', '', '']);
-//const initialState = new State(4, ['mcsc', 'pbpm', 'vblv', 'cvos', 'obvk', 'klkp', 'omlc', 'sblk', 'pmso', '', '']);
-// const initialState = new State(4, ['abcd', 'abcd', 'abcd', 'abcd', 'defg', 'defg', 'defg', 'defg', 'hhhh', '', '']);
-//const initialState = new State(4, ['abcd', 'abcd', 'abcd', 'abcd', '', '']);
-// const initialState = new State(2, ['ab', 'ab', '', '']);
+const startingStates = [
+    new State(2, ['ab', 'ab', '', '']),
+    new State(4, ['abcd', 'abcd', 'abcd', 'abcd', '', '']),
+    new State(4, ['abcd', 'abcd', 'abcd', 'abcd', 'defg', 'defg', 'defg', 'defg', 'hhhh', '', '']),
+    new State(4, ['mcsc', 'pbpm', 'vblv', 'cvos', 'obvk', 'klkp', 'omlc', 'sblk', 'pmso', '', '']),
+    new State(5, ['vobcc', 'avrsp', 'amblo', 'oorkd', 'aslkm', 'dpkbv', 'rkrac', 'bpaks', 'slldd', 'pbrmv', 'clmom', 'pdcvs', '', '']),
+];
 
-function main() {
+/* Solve the last item of the list */
+main(startingStates[startingStates.length - 1]);
+
+/* Execution ends here */
+
+/**
+ * @param {State} initialState
+ */
+function main(initialState) {
     console.log('Started at: ' + new Date());
     if (initialState.isValid()) {
         let ballSortPuzzleSolver = new BallSortPuzzleSolver(initialState);
@@ -30,13 +39,3 @@ function main() {
     }
     console.log('Finished at: ' + new Date());
 }
-
-// const secondState = doMove(initialState, 0, 1);
-// console.log(findAllMoves(initialState));
-// console.log(areStatesEqual(secondState, initialState));
-// console.log(isAlreadyTried(initialState, [initialState]));
-// console.log(isPileHomogenous(''));
-//console.log(isSolved(['aa', '', 'bb', '']));
-//console.log(solve(initialState, []));
-
-main();
